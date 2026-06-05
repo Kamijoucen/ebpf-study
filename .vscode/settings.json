@@ -1,0 +1,11 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda",
+    "python.analysis.extraPaths": [
+        "/usr/lib/python3/dist-packages"
+    ],
+    "code-runner.executorMap": {
+        "python": "sudo python3 -u $fullFileName"
+    },
+    "code-runner.runInTerminal": true
+}
