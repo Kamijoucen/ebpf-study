@@ -63,6 +63,8 @@ prog_array[ct.c_int(225)] = ct.c_int(timer_fn.fd)
 prog_array[ct.c_int(226)] = ct.c_int(timer_fn.fd)
 
 # 将入口函数挂载到 sys_enter 上，所有系统调用都会进入这个函数
+# attach_raw_tracepoint 和 attach_kprobe 的区别在于前者直接挂载在内核的 tracepoint 上，后者挂载在函数入口处
+# tracepoint 是内核内置的钩子，性能更好，适合监控系统调用等事件；kprobe 是动态插入的钩子，适合监控任意函数，但性能稍差
 b.attach_raw_tracepoint(tp="sys_enter", fn_name="hello")
 
 # 打印输出
